@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lebaran 2026 - Keluarga Sularsito</title>
+    <title>Lebaran 2026 - Megah Keluarga Sularsito</title>
     <style>
         body { 
             margin: 0; display: flex; justify-content: center; align-items: center; 
@@ -13,43 +13,55 @@
 
         /* --- Kartu Utama --- */
         .card { 
-            background: rgba(255, 255, 255, 0.98); padding: 40px 25px 0 25px; border-radius: 20px; 
+            background: rgba(255, 255, 255, 0.98); 
+            padding: 80px 25px 0 25px; /* Perbesar Padding Atas untuk Dekorasi Besar */
+            border-radius: 20px; 
             box-shadow: 0 0 50px rgba(255, 165, 0, 0.2); max-width: 380px; width: 90%; 
             text-align: center; position: relative; z-index: 10; overflow: hidden;
         }
 
-        /* --- Dekorasi Gantung Milik Sendiri --- */
+        /* --- Dekorasi Gantung Milik Sendiri (PERBESAR) --- */
         .hanging-decorations {
-            position: absolute; top: -10px; left: 0; width: 100%;
+            position: absolute; 
+            top: 20px; /* Geser turun agar ornamen tepat di depan bunga */
+            left: 0; 
+            width: 100%;
             display: flex; justify-content: space-around; align-items: flex-start;
             pointer-events: none; z-index: 20;
         }
 
+        /* Tali Gantung Panjang & Bergoyang Pelan */
         .string {
-            width: 2px; height: 50px; background: #8e44ad;
+            width: 2px; height: 100px; /* Perpanjang Tali */
+            background: #8e44ad;
             position: relative; transform-origin: top center;
-            animation: swing 4s ease-in-out infinite alternate;
+            animation: swing 6s ease-in-out infinite alternate; /* Goyang Pelan */
         }
 
+        /* Gaya Gambar Dekorasi Besar */
         .my-decor {
             position: absolute; 
-            bottom: -35px; 
+            bottom: -80px; /* Posisi vertikal di ujung tali yang panjang */
             left: 50%; 
             transform: translateX(-50%); 
-            height: 40px; 
+            height: 100px; /* Perbesar Gambar Signifikan */
             width: auto; 
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7)); /* Cahaya Lebih Terang */
         }
 
         @keyframes swing {
-            from { transform: rotate(-15deg); }
-            to { transform: rotate(15deg); }
+            from { transform: rotate(-10deg); }
+            to { transform: rotate(10deg); }
         }
 
         /* --- Foto & Pesta Kembang Api --- */
         .photo-wrapper { 
-            position: relative; width: 100%; border-radius: 15px; 
-            overflow: hidden; background: #000; margin-top: 25px;
+            position: relative; 
+            width: 100%; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            background: #000; 
+            margin-top: 0; /* Hapus Margin agar foto naik */
         }
         .photo { width: 100%; display: block; border-radius: 15px; opacity: 0.9; }
         
@@ -98,13 +110,13 @@
             <div class="string" style="animation-delay: 0s;">
                 <img src="lampu-gantung.png" class="my-decor" alt="Lampu Lebaran">
             </div>
-            <div class="string" style="animation-delay: 0.7s; height: 65px;">
-                <img src="ketupat.png" class="my-decor" alt="Ketupat">
+            <div class="string" style="animation-delay: 1.5s; height: 110px;"> <img src="ketupat.png" class="my-decor" alt="Ketupat">
             </div>
-            <div class="string" style="animation-delay: 1.4s; height: 55px;">
-                <img src="ketupat.png" class="my-decor" alt="Ketupat">
+            <div class="string" style="animation-delay: 3s; height: 105px;"> <img src="ketupat.png" class="my-decor" alt="Ketupat">
             </div>
-        </div> <div class="photo-wrapper">
+        </div>
+
+        <div class="photo-wrapper">
             <img src="family 2.jpg" class="photo" alt="Keluarga Sularsito">
             <img src="kembang-api.png" class="fw-overlay" style="color:red; top:-10%; left:-10%; width:100px; animation-delay:0s">
             <img src="kembang-api.png" class="fw-overlay" style="color:gold; top:-5%; right:-5%; width:90px; animation-delay:0.5s">
