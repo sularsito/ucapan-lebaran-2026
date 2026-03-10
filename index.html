@@ -3,20 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lebaran 2026</title>
+    <title>Lebaran 2026 - Sularsito</title>
     <style>
-        body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f0f2f5; font-family: sans-serif; text-align: center; }
-        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 400px; width: 90%; }
+        body { 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            background: #0b1026; /* Warna langit malam */
+            font-family: 'Segoe UI', sans-serif; 
+            overflow: hidden; /* Mencegah scroll karena animasi */
+            position: relative;
+        }
+
+        /* --- Animasi Bintang Jatuh --- */
+        .shooting-star {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 2px;
+            background: linear-gradient(-45deg, #fff, rgba(0, 0, 255, 0));
+            filter: drop-shadow(0 0 6px #fff);
+            animation: tail 3s ease-in-out infinite, shooting 3s ease-in-out infinite;
+        }
+        @keyframes tail { 0% { width: 0; } 30% { width: 100px; } 100% { width: 0; } }
+        @keyframes shooting { 0% { transform: translateX(0); } 100% { transform: translateX(300px); } }
+        .shooting-star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .shooting-star:nth-child(2) { top: 30%; left: 70%; animation-delay: 1s; }
+
+        /* --- Animasi Kembang Api --- */
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            box-shadow: 0 0 #fff, 0 0 #fff, 0 0 #fff; /* Placeholder */
+            animation: explode 2s infinite;
+        }
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; box-shadow: 0 0 #ff4757, 0 0 #eccc68, 0 0 #2ed573; }
+            100% { transform: scale(30); opacity: 0; box-shadow: 20px 20px transparent, -20px -20px transparent, 20px -20px transparent; }
+        }
+        .fw1 { left: 15%; top: 20%; animation-delay: 0.5s; }
+        .fw2 { right: 15%; top: 15%; animation-delay: 1.2s; }
+
+        /* --- Card Style --- */
+        .card { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 25px; 
+            border-radius: 20px; 
+            box-shadow: 0 0 50px rgba(0,0,0,0.5); 
+            max-width: 380px; 
+            width: 90%; 
+            text-align: center;
+            position: relative;
+            z-index: 10; /* Agar kartu di atas animasi */
+        }
         .light-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
         .dot { width: 14px; height: 14px; border-radius: 50%; animation: blink 0.8s infinite alternate; }
-        @keyframes blink { from { opacity: 1; box-shadow: 0 0 12px currentColor; } to { opacity: 0.3; box-shadow: 0 0 0px transparent; } }
+        @keyframes blink { from { opacity: 1; box-shadow: 0 0 12px currentColor; } to { opacity: 0.3; } }
         .photo { width: 100%; border-radius: 15px; }
         h1 { color: #2c3e50; font-size: 1.5rem; margin-top: 15px; }
-        p { color: #7f8c8d; }
-        .btn-play { background: #27ae60; color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 20px; }
+        p { color: #7f8c8d; font-size: 0.9rem; }
+        .btn-play { background: #27ae60; color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 15px; }
     </style>
 </head>
 <body>
+
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="firework fw1"></div>
+    <div class="firework fw2"></div>
+
     <div class="card">
         <div class="light-container">
             <span class="dot" style="color: #ff4757; background: #ff4757; animation-delay: 0s;"></span>
@@ -24,11 +83,15 @@
             <span class="dot" style="color: #2ed573; background: #2ed573; animation-delay: 0.4s;"></span>
             <span class="dot" style="color: #1e90ff; background: #1e90ff; animation-delay: 0.6s;"></span>
         </div>
+
         <img src="family 2.jpg" alt="Foto Keluarga" class="photo">
+        
         <h1>Selamat Idul Fitri 1447 H</h1>
         <p>Mohon Maaf Lahir dan Batin.<br>Semoga keberkahan menyertai kita semua.</p>
+
         <audio id="audioTakbir" src="Takbir.mpeg"></audio>
         <button class="btn-play" onclick="document.getElementById('audioTakbir').play()">🎵 Putar Gema Takbir</button>
     </div>
+
 </body>
 </html>
