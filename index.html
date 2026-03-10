@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -11,20 +11,19 @@
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
-            background: #f0f2f5; 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            text-align: center; 
+            background: #e9ecef; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
         }
         .card { 
             background: white; 
-            padding: 25px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            padding: 30px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
             max-width: 400px; 
             width: 90%; 
-            margin: 20px;
+            text-align: center;
         }
-        /* Container Lampu */
+        /* Bagian Lampu */
         .light-container { 
             display: flex; 
             justify-content: center; 
@@ -32,31 +31,31 @@
             margin-bottom: 20px; 
         }
         .dot { 
-            width: 15px; 
-            height: 15px; 
+            width: 14px; 
+            height: 14px; 
             border-radius: 50%; 
             animation: blink 0.8s infinite alternate; 
         }
         @keyframes blink {
             from { opacity: 1; box-shadow: 0 0 12px currentColor; }
-            to { opacity: 0.2; box-shadow: 0 0 0px transparent; }
+            to { opacity: 0.3; box-shadow: 0 0 0px transparent; }
         }
         .photo { 
             width: 100%; 
             border-radius: 15px; 
-            display: block;
+            margin-bottom: 20px;
         }
-        h1 { color: #2c3e50; font-size: 1.5rem; margin-top: 20px; }
-        p { color: #7f8c8d; font-size: 1rem; line-height: 1.5; }
+        h1 { color: #2c3e50; font-size: 1.6rem; margin: 10px 0; }
+        p { color: #7f8c8d; font-size: 1rem; line-height: 1.6; }
         .btn-play { 
             background: #27ae60; 
             color: white; 
             border: none; 
-            padding: 12px 30px; 
+            padding: 12px 25px; 
             border-radius: 50px; 
             cursor: pointer; 
             font-weight: bold; 
-            margin-top: 20px; 
+            margin-top: 20px;
             font-size: 1rem;
         }
     </style>
@@ -65,10 +64,10 @@
 
 <div class="card">
     <div class="light-container">
-        <span class="dot" style="color: #ff0000; background: #ff0000; animation-delay: 0s;"></span>
-        <span class="dot" style="color: #ffeb3b; background: #ffeb3b; animation-delay: 0.2s;"></span>
-        <span class="dot" style="color: #2ecc71; background: #2ecc71; animation-delay: 0.4s;"></span>
-        <span class="dot" style="color: #00bcd4; background: #00bcd4; animation-delay: 0.6s;"></span>
+        <span class="dot" style="color: #ff4757; background: #ff4757; animation-delay: 0s;"></span>
+        <span class="dot" style="color: #eccc68; background: #eccc68; animation-delay: 0.2s;"></span>
+        <span class="dot" style="color: #2ed573; background: #2ed573; animation-delay: 0.4s;"></span>
+        <span class="dot" style="color: #1e90ff; background: #1e90ff; animation-delay: 0.6s;"></span>
     </div>
 
     <img src="family 2.jpg" alt="Foto Keluarga" class="photo">
