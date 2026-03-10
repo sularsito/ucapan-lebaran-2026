@@ -52,7 +52,7 @@
     <h1>Selamat Idul Fitri 1447 H</h1>
     <p>Mohon Maaf Lahir dan Batin.<br>Semoga keberkahan menyertai kita semua di tahun 2026 ini.</p>
 
-    <audio id="audioTakbir" src="takbir.mp3"></audio>
+    <audio id="audioTakbir" src="Takbir.mpeg"></audio>
     <button class="btn-play" onclick="toggleAudio()">🎵 Putar Gema Takbir</button>
 </div>
 
@@ -69,4 +69,5 @@
 
 </body>
 </html>
+
 
