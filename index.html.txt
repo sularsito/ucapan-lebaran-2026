@@ -47,7 +47,7 @@
 <body>
 
 <div class="card">
-    <img src="foto-keluarga.jpg" alt="Foto Keluarga" class="photo">
+    <img src="family 2.jpg" alt="Foto Keluarga" class="photo">
     
     <h1>Selamat Idul Fitri 1447 H</h1>
     <p>Mohon Maaf Lahir dan Batin.<br>Semoga keberkahan menyertai kita semua di tahun 2026 ini.</p>
@@ -69,3 +69,4 @@
 
 </body>
 </html>
+
