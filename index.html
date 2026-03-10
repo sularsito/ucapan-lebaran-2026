@@ -3,81 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lebaran 2026 - Sularsito</title>
+    <title>Lebaran 2026</title>
     <style>
-        body { 
-            margin: 0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-            background: #e9ecef; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-        }
-        .card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 25px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            max-width: 400px; 
-            width: 90%; 
-            text-align: center;
-        }
-        /* Bagian Lampu */
-        .light-container { 
-            display: flex; 
-            justify-content: center; 
-            gap: 15px; 
-            margin-bottom: 20px; 
-        }
-        .dot { 
-            width: 14px; 
-            height: 14px; 
-            border-radius: 50%; 
-            animation: blink 0.8s infinite alternate; 
-        }
-        @keyframes blink {
-            from { opacity: 1; box-shadow: 0 0 12px currentColor; }
-            to { opacity: 0.3; box-shadow: 0 0 0px transparent; }
-        }
-        .photo { 
-            width: 100%; 
-            border-radius: 15px; 
-            margin-bottom: 20px;
-        }
-        h1 { color: #2c3e50; font-size: 1.6rem; margin: 10px 0; }
-        p { color: #7f8c8d; font-size: 1rem; line-height: 1.6; }
-        .btn-play { 
-            background: #27ae60; 
-            color: white; 
-            border: none; 
-            padding: 12px 25px; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            margin-top: 20px;
-            font-size: 1rem;
-        }
+        body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f0f2f5; font-family: sans-serif; text-align: center; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 400px; width: 90%; }
+        .light-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .dot { width: 14px; height: 14px; border-radius: 50%; animation: blink 0.8s infinite alternate; }
+        @keyframes blink { from { opacity: 1; box-shadow: 0 0 12px currentColor; } to { opacity: 0.3; box-shadow: 0 0 0px transparent; } }
+        .photo { width: 100%; border-radius: 15px; }
+        h1 { color: #2c3e50; font-size: 1.5rem; margin-top: 15px; }
+        p { color: #7f8c8d; }
+        .btn-play { background: #27ae60; color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
 <body>
-
-<div class="card">
-    <div class="light-container">
-        <span class="dot" style="color: #ff4757; background: #ff4757; animation-delay: 0s;"></span>
-        <span class="dot" style="color: #eccc68; background: #eccc68; animation-delay: 0.2s;"></span>
-        <span class="dot" style="color: #2ed573; background: #2ed573; animation-delay: 0.4s;"></span>
-        <span class="dot" style="color: #1e90ff; background: #1e90ff; animation-delay: 0.6s;"></span>
+    <div class="card">
+        <div class="light-container">
+            <span class="dot" style="color: #ff4757; background: #ff4757; animation-delay: 0s;"></span>
+            <span class="dot" style="color: #eccc68; background: #eccc68; animation-delay: 0.2s;"></span>
+            <span class="dot" style="color: #2ed573; background: #2ed573; animation-delay: 0.4s;"></span>
+            <span class="dot" style="color: #1e90ff; background: #1e90ff; animation-delay: 0.6s;"></span>
+        </div>
+        <img src="family 2.jpg" alt="Foto Keluarga" class="photo">
+        <h1>Selamat Idul Fitri 1447 H</h1>
+        <p>Mohon Maaf Lahir dan Batin.<br>Semoga keberkahan menyertai kita semua.</p>
+        <audio id="audioTakbir" src="Takbir.mpeg"></audio>
+        <button class="btn-play" onclick="document.getElementById('audioTakbir').play()">🎵 Putar Gema Takbir</button>
     </div>
-
-    <img src="family 2.jpg" alt="Foto Keluarga" class="photo">
-    
-    <h1>Selamat Idul Fitri 1447 H</h1>
-    <p>Mohon Maaf Lahir dan Batin.<br>Semoga keberkahan menyertai kita semua di tahun 2026 ini.</p>
-
-    <audio id="audioTakbir" src="Takbir.mpeg"></audio>
-    <button class="btn-play" onclick="document.getElementById('audioTakbir').play()">🎵 Putar Gema Takbir</button>
-</div>
-
 </body>
 </html>
