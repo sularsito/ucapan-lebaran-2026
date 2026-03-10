@@ -11,70 +11,95 @@
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
-            background: #0b1026; /* Warna langit malam */
+            background: #0b1026; /* Langit Malam */
             font-family: 'Segoe UI', sans-serif; 
-            overflow: hidden; /* Mencegah scroll karena animasi */
+            overflow: hidden;
             position: relative;
         }
 
         /* --- Animasi Bintang Jatuh --- */
         .shooting-star {
             position: absolute;
-            left: 50%;
-            top: 50%;
-            height: 2px;
-            background: linear-gradient(-45deg, #fff, rgba(0, 0, 255, 0));
-            filter: drop-shadow(0 0 6px #fff);
-            animation: tail 3s ease-in-out infinite, shooting 3s ease-in-out infinite;
-        }
-        @keyframes tail { 0% { width: 0; } 30% { width: 100px; } 100% { width: 0; } }
-        @keyframes shooting { 0% { transform: translateX(0); } 100% { transform: translateX(300px); } }
-        .shooting-star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .shooting-star:nth-child(2) { top: 30%; left: 70%; animation-delay: 1s; }
-
-        /* --- Animasi Kembang Api --- */
-        .firework {
-            position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 2px; height: 2px;
+            background: white;
             border-radius: 50%;
-            box-shadow: 0 0 #fff, 0 0 #fff, 0 0 #fff; /* Placeholder */
-            animation: explode 2s infinite;
+            opacity: 0;
+            animation: shoot 4s linear infinite;
         }
-        @keyframes explode {
-            0% { transform: scale(1); opacity: 1; box-shadow: 0 0 #ff4757, 0 0 #eccc68, 0 0 #2ed573; }
-            100% { transform: scale(30); opacity: 0; box-shadow: 20px 20px transparent, -20px -20px transparent, 20px -20px transparent; }
+        @keyframes shoot {
+            0% { transform: translate(100vw, 0); opacity: 1; }
+            20% { transform: translate(70vw, 30vh); opacity: 0; }
+            100% { opacity: 0; }
         }
-        .fw1 { left: 15%; top: 20%; animation-delay: 0.5s; }
-        .fw2 { right: 15%; top: 15%; animation-delay: 1.2s; }
 
-        /* --- Card Style --- */
+        /* --- Kartu Ucapan --- */
         .card { 
             background: rgba(255, 255, 255, 0.95); 
             padding: 25px; 
             border-radius: 20px; 
-            box-shadow: 0 0 50px rgba(0,0,0,0.5); 
+            box-shadow: 0 0 40px rgba(0,0,0,0.5); 
             max-width: 380px; 
             width: 90%; 
             text-align: center;
             position: relative;
-            z-index: 10; /* Agar kartu di atas animasi */
+            z-index: 10;
         }
-        .light-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
+
+        /* --- Lampu Hias --- */
+        .light-container { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
         .dot { width: 14px; height: 14px; border-radius: 50%; animation: blink 0.8s infinite alternate; }
-        @keyframes blink { from { opacity: 1; box-shadow: 0 0 12px currentColor; } to { opacity: 0.3; } }
-        .photo { width: 100%; border-radius: 15px; }
-        h1 { color: #2c3e50; font-size: 1.5rem; margin-top: 15px; }
-        p { color: #7f8c8d; font-size: 0.9rem; }
-        .btn-play { background: #27ae60; color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 15px; }
+        @keyframes blink { from { opacity: 1; box-shadow: 0 0 10px currentColor; } to { opacity: 0.3; } }
+
+        /* --- Foto & Kembang Api Menyala --- */
+        .photo-wrapper { 
+            position: relative; 
+            width: 100%; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            background: #eee;
+        }
+        .photo { width: 100%; display: block; border-radius: 15px; }
+        
+        /* Animasi Kembang Api di Atas Foto */
+        .fw-overlay { 
+            position: absolute; 
+            width: 100px; /* Ukuran kembang api */
+            height: 100px; 
+            opacity: 0; 
+            pointer-events: none;
+            animation: explode-fw 3s infinite;
+        }
+        @keyframes explode-fw {
+            0% { transform: scale(0.1) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: scale(1) rotate(20deg); opacity: 0.8; }
+            100% { transform: scale(1.3) rotate(40deg); opacity: 0; }
+        }
+
+        h1 { color: #2c3e50; font-size: 1.5rem; margin: 15px 0 5px; }
+        p { color: #7f8c8d; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
+        .btn-play { 
+            background: #27ae60; 
+            color: white; 
+            border: none; 
+            padding: 15px; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            width: 100%; 
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-play:hover { background: #219150; }
     </style>
 </head>
 <body>
 
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="firework fw1"></div>
-    <div class="firework fw2"></div>
+    <div class="shooting-star" style="top: 10%; animation-delay: 0s;"></div>
+    <div class="shooting-star" style="top: 30%; animation-delay: 2s;"></div>
 
     <div class="card">
         <div class="light-container">
@@ -84,13 +109,21 @@
             <span class="dot" style="color: #1e90ff; background: #1e90ff; animation-delay: 0.6s;"></span>
         </div>
 
-        <img src="family 2.jpg" alt="Foto Keluarga" class="photo">
+        <div class="photo-wrapper">
+            <img src="family 2.jpg" class="photo" alt="Keluarga Sularsito">
+            
+            <img src="kembang-api.png" class="fw-overlay" style="top: -10%; left: -10%; animation-delay: 0s;">
+            <img src="kembang-api.png" class="fw-overlay" style="top: 10%; right: -10%; animation-delay: 1.5s;">
+            <img src="kembang-api.png" class="fw-overlay" style="bottom: 0%; left: 20%; animation-delay: 0.7s; width: 80px;">
+        </div>
         
         <h1>Selamat Idul Fitri 1447 H</h1>
-        <p>Mohon Maaf Lahir dan Batin.<br>Semoga keberkahan menyertai kita semua.</p>
+        <p>Mohon Maaf Lahir dan Batin.<br>Semoga keberkahan menyertai kita semua.<br><strong>Keluarga Sularsito</strong></p>
 
         <audio id="audioTakbir" src="Takbir.mpeg"></audio>
-        <button class="btn-play" onclick="document.getElementById('audioTakbir').play()">🎵 Putar Gema Takbir</button>
+        <button class="btn-play" onclick="document.getElementById('audioTakbir').play()">
+            <span>▶️</span> Putar Gema Takbir
+        </button>
     </div>
 
 </body>
