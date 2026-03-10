@@ -3,56 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lebaran 2026 - Pesta Kembang Api Sularsito</title>
+    <title>Lebaran 2026 - Keluarga Sularsito</title>
     <style>
         body { 
-            margin: 0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-            background: #050a1f; /* Langit Malam Lebih Gelap */
-            font-family: 'Segoe UI', sans-serif; 
-            overflow: hidden;
-            position: relative;
+            margin: 0; display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; background: #050a1f; font-family: 'Segoe UI', sans-serif; 
+            overflow: hidden; position: relative;
         }
 
-        /* --- Kartu Ucapan --- */
+        /* --- Kartu Utama --- */
         .card { 
-            background: rgba(255, 255, 255, 0.98); 
-            padding: 25px; 
-            border-radius: 20px; 
-            box-shadow: 0 0 50px rgba(255, 165, 0, 0.3); /* Glow Kuning */
-            max-width: 380px; 
-            width: 90%; 
-            text-align: center;
-            position: relative;
-            z-index: 10;
+            background: rgba(255, 255, 255, 0.98); padding: 25px; border-radius: 20px; 
+            box-shadow: 0 0 50px rgba(255, 165, 0, 0.2); max-width: 380px; width: 90%; 
+            text-align: center; position: relative; z-index: 10; overflow: hidden;
         }
 
-        /* --- Lampu Hias --- */
-        .light-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
-        .dot { width: 12px; height: 12px; border-radius: 50%; animation: blink 0.6s infinite alternate; }
-        @keyframes blink { from { opacity: 1; box-shadow: 0 0 10px currentColor; } to { opacity: 0.3; } }
+        /* --- Animasi Lampu Gantung Bergoyang --- */
+        .hanging-lights {
+            position: absolute; top: -10px; left: 0; width: 100%;
+            display: flex; justify-content: space-around; pointer-events: none;
+        }
+        .wire {
+            width: 2px; height: 40px; background: #333; position: relative;
+            transform-origin: top center;
+            animation: swing 3s ease-in-out infinite alternate;
+        }
+        .bulb {
+            position: absolute; bottom: -12px; left: -6px;
+            width: 14px; height: 14px; border-radius: 50%;
+            animation: glow 0.8s infinite alternate;
+        }
+        
+        @keyframes swing {
+            from { transform: rotate(-10deg); }
+            to { transform: rotate(10deg); }
+        }
+        @keyframes glow {
+            from { opacity: 1; box-shadow: 0 0 15px currentColor; }
+            to { opacity: 0.4; box-shadow: 0 0 2px currentColor; }
+        }
 
-        /* --- Foto & Kembang Api SUPER MERIAH --- */
+        /* --- Foto & Pesta Kembang Api --- */
         .photo-wrapper { 
-            position: relative; 
-            width: 100%; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            background: #000; /* Latar Foto Hitam agar Kembang Api Kontras */
-            box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
+            position: relative; width: 100%; border-radius: 15px; 
+            overflow: hidden; background: #000; margin-top: 25px;
         }
         .photo { width: 100%; display: block; border-radius: 15px; opacity: 0.9; }
         
-        /* Animasi Kembang Api Sangat Agresif */
         .fw-overlay { 
-            position: absolute; 
-            opacity: 0; 
-            pointer-events: none;
-            animation: explode-fw 2.2s infinite ease-out; /* Lebih Cepat & Sering */
-            filter: drop-shadow(0 0 8px currentColor); /* Efek Cahaya Kuat */
+            position: absolute; opacity: 0; pointer-events: none;
+            animation: explode-fw 2.2s infinite ease-out;
+            filter: drop-shadow(0 0 8px currentColor);
         }
         @keyframes explode-fw {
             0% { transform: scale(0.1) rotate(0deg); opacity: 0; }
@@ -61,50 +62,35 @@
             100% { transform: scale(1.4) rotate(40deg); opacity: 0; }
         }
 
-        /* --- Konten Teks --- */
+        /* --- Teks & Tombol --- */
         h1 { color: #2c3e50; font-size: 1.5rem; margin: 15px 0 5px; }
         p { color: #7f8c8d; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
         .btn-play { 
-            background: #27ae60; 
-            color: white; 
-            border: none; 
-            padding: 15px; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            width: 100%; 
-            font-size: 1.1rem;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            transition: 0.3s;
+            background: #27ae60; color: white; border: none; padding: 15px; 
+            border-radius: 50px; cursor: pointer; font-weight: bold; width: 100%; 
+            font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 10px;
         }
-        .btn-play:hover { background: #1e8449; transform: scale(1.03); }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <div class="light-container">
-            <span class="dot" style="color: #ff4757; background: #ff4757; animation-delay: 0s;"></span>
-            <span class="dot" style="color: #ffeb3b; background: #ffeb3b; animation-delay: 0.1s;"></span>
-            <span class="dot" style="color: #2ed573; background: #2ed573; animation-delay: 0.2s;"></span>
-            <span class="dot" style="color: #1e90ff; background: #1e90ff; animation-delay: 0.3s;"></span>
-            <span class="dot" style="color: #a55eea; background: #a55eea; animation-delay: 0.4s;"></span>
+        <div class="hanging-lights">
+            <div class="wire"><div class="bulb" style="color: #ff4757; background: #ff4757; animation-delay: 0s;"></div></div>
+            <div class="wire" style="animation-delay: 0.5s;"><div class="bulb" style="color: #ffeb3b; background: #ffeb3b; animation-delay: 0.2s;"></div></div>
+            <div class="wire" style="animation-delay: 1s;"><div class="bulb" style="color: #2ed573; background: #2ed573; animation-delay: 0.4s;"></div></div>
+            <div class="wire" style="animation-delay: 1.5s;"><div class="bulb" style="color: #1e90ff; background: #1e90ff; animation-delay: 0.6s;"></div></div>
+            <div class="wire" style="animation-delay: 2s;"><div class="bulb" style="color: #a55eea; background: #a55eea; animation-delay: 0.8s;"></div></div>
         </div>
 
         <div class="photo-wrapper">
             <img src="family 2.jpg" class="photo" alt="Keluarga Sularsito">
             
             <img src="kembang-api.png" class="fw-overlay" style="color:red; top:-15%; left:-15%; width:120px; animation-delay:0s">
-            
             <img src="kembang-api.png" class="fw-overlay" style="color:gold; top:-10%; right:-10%; width:100px; animation-delay:0.5s">
-            
             <img src="kembang-api.png" class="fw-overlay" style="color:lime; bottom:-10%; left:-10%; width:90px; animation-delay:1.1s">
-            
             <img src="kembang-api.png" class="fw-overlay" style="color:cyan; bottom:-5%; right:-5%; width:110px; animation-delay:1.7s">
-
             <img src="kembang-api.png" class="fw-overlay" style="color:magenta; top:20%; left:35%; width:60px; animation-delay:0.8s">
-
-            <img src="kembang-api.png" class="fw-overlay" style="color:white; bottom:25%; right:30%; width:50px; animation-delay:1.4s">
         </div>
         
         <h1>Selamat Idul Fitri 1447 H</h1>
