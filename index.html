@@ -1,107 +1,47 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ucapan Lebaran 2026</title>
+    <title>Ucapan Lebaran 2026 - Sularsito</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
+        body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f0f2f5; font-family: sans-serif; text-align: center; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 380px; width: 90%; }
+        
+        /* Container Lampu */
+        .light-container { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+        .dot { width: 15px; height: 15px; border-radius: 50%; animation: blink 0.8s infinite alternate; }
+        
+        @keyframes blink {
+            from { opacity: 1; box-shadow: 0 0 12px currentColor; }
+            to { opacity: 0.2; box-shadow: 0 0 0px transparent; }
         }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 90%;
-        }
-        .photo {
-            width: 100%;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border: 5px solid #ececec;
-        }
-        h1 { color: #2c3e50; font-size: 1.5rem; }
-        p { color: #7f8c8d; line-height: 1.6; }
-        .btn-play {
-            background: #27ae60;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 15px;
-            font-weight: bold;
-        }
+
+        .photo { width: 100%; border-radius: 15px; border: 4px solid #f9f9f9; }
+        h1 { color: #2c3e50; font-size: 1.4rem; margin-top: 15px; }
+        p { color: #7f8c8d; font-size: 0.95rem; line-height: 1.5; }
+        .btn-play { background: #27ae60; color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn-play:hover { background: #219150; transform: scale(1.05); }
     </style>
-    /* Container untuk lampu */
-.light-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-/* Bentuk lampu bulat kecil */
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    animation: blink 1s infinite alternate;
-}
-
-/* Efek kedipan */
-@keyframes blink {
-    from {
-        opacity: 1;
-        box-shadow: 0 0 10px currentColor; /* Efek cahaya bersinar */
-    }
-    to {
-        opacity: 0.3;
-        box-shadow: 0 0 0px transparent;
-    }
-}
 </head>
 <body>
+
 <div class="card">
     <div class="light-container">
-        <span class="dot" style="background: #ff0000; animation-delay: 0s;"></span>
-        <span class="dot" style="background: #ffeb3b; animation-delay: 0.2s;"></span>
-        <span class="dot" style="background: #2ecc71; animation-delay: 0.4s;"></span>
-        <span class="dot" style="background: #e67e22; animation-delay: 0.6s;"></span>
+        <span class="dot" style="color: #ff0000; background: #ff0000; animation-delay: 0s;"></span>
+        <span class="dot" style="color: #ffeb3b; background: #ffeb3b; animation-delay: 0.2s;"></span>
+        <span class="dot" style="color: #2ecc71; background: #2ecc71; animation-delay: 0.4s;"></span>
+        <span class="dot" style="color: #00bcd4; background: #00bcd4; animation-delay: 0.6s;"></span>
     </div>
-<div class="card">
+
     <img src="family 2.jpg" alt="Foto Keluarga" class="photo">
     
     <h1>Selamat Idul Fitri 1447 H</h1>
     <p>Mohon Maaf Lahir dan Batin.<br>Semoga keberkahan menyertai kita semua di tahun 2026 ini.</p>
 
     <audio id="audioTakbir" src="Takbir.mpeg"></audio>
-    <button class="btn-play" onclick="toggleAudio()">🎵 Putar Gema Takbir</button>
+    <button class="btn-play" onclick="document.getElementById('audioTakbir').play()">🎵 Putar Gema Takbir</button>
 </div>
-
-<script>
-    function toggleAudio() {
-        var audio = document.getElementById("audioTakbir");
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-    }
-</script>
 
 </body>
 </html>
-
-
-
