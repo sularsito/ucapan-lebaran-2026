@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Lebaran 2026</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+        .photo {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 5px solid #ececec;
+        }
+        h1 { color: #2c3e50; font-size: 1.5rem; }
+        p { color: #7f8c8d; line-height: 1.6; }
+        .btn-play {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <img src="foto-keluarga.jpg" alt="Foto Keluarga" class="photo">
+    
+    <h1>Selamat Idul Fitri 1447 H</h1>
+    <p>Mohon Maaf Lahir dan Batin.<br>Semoga keberkahan menyertai kita semua di tahun 2026 ini.</p>
+
+    <audio id="audioTakbir" src="takbir.mp3"></audio>
+    <button class="btn-play" onclick="toggleAudio()">🎵 Putar Gema Takbir</button>
+</div>
+
+<script>
+    function toggleAudio() {
+        var audio = document.getElementById("audioTakbir");
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+</script>
+
+</body>
+</html>
