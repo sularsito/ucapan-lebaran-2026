@@ -13,33 +13,59 @@
 
         /* --- Kartu Utama --- */
         .card { 
-            background: rgba(255, 255, 255, 0.98); padding: 25px 25px 0 25px; border-radius: 20px; 
+            background: rgba(255, 255, 255, 0.98); padding: 40px 25px 0 25px; border-radius: 20px; 
             box-shadow: 0 0 50px rgba(255, 165, 0, 0.2); max-width: 380px; width: 90%; 
             text-align: center; position: relative; z-index: 10; overflow: hidden;
         }
 
-        /* --- Lampu Gantung Bergoyang --- */
-        .hanging-lights {
-            position: absolute; top: -5px; left: 0; width: 100%;
-            display: flex; justify-content: space-around; pointer-events: none;
+        /* --- Dekorasi Gantung (Lentera & Ketupat) --- */
+        .hanging-decorations {
+            position: absolute; top: -10px; left: 0; width: 100%;
+            display: flex; justify-content: space-around; align-items: flex-start;
+            pointer-events: none; z-index: 20;
         }
-        .wire {
-            width: 1px; height: 35px; background: #333; position: relative;
-            transform-origin: top center;
-            animation: swing 3s ease-in-out infinite alternate;
+
+        /* Tali Gantung */
+        .string {
+            width: 2px; height: 50px; background: #8e44ad; /* Warna ungu tali */
+            position: relative; transform-origin: top center;
+            animation: swing 4s ease-in-out infinite alternate;
         }
-        .bulb {
-            position: absolute; bottom: -10px; left: -5px;
-            width: 10px; height: 10px; border-radius: 50%;
-            animation: glow 0.8s infinite alternate;
+
+        /* Lentera Ramadhan (Lantern) */
+        .lantern {
+            position: absolute; bottom: -25px; left: -10px;
+            width: 20px; height: 30px; background: #f1c40f; /* Warna kuning emas */
+            border-radius: 5px; box-shadow: 0 0 15px rgba(241, 196, 15, 0.7);
+            border: 2px solid #8e44ad; /* Bingkai ungu */
         }
-        @keyframes swing { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
-        @keyframes glow { from { opacity: 1; box-shadow: 0 0 15px currentColor; } to { opacity: 0.4; } }
+        .lantern::before { /* Bagian atas lentera */
+            content: ''; position: absolute; top: -8px; left: 2px;
+            width: 16px; height: 8px; background: #8e44ad; border-radius: 5px 5px 0 0;
+        }
+
+        /* Ketupat */
+        .ketupat {
+            position: absolute; bottom: -20px; left: -8px;
+            width: 18px; height: 18px; background: #2ecc71; /* Warna hijau muda */
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+            border: 2px solid #27ae60; /* Bingkai hijau tua */
+        }
+        .ketupat::after { /* Tali ketupat */
+            content: ''; position: absolute; top: -5px; left: 8px;
+            width: 2px; height: 8px; background: #27ae60;
+        }
+
+        @keyframes swing {
+            from { transform: rotate(-15deg); }
+            to { transform: rotate(15deg); }
+        }
 
         /* --- Foto & Pesta Kembang Api --- */
         .photo-wrapper { 
             position: relative; width: 100%; border-radius: 15px; 
-            overflow: hidden; background: #000; margin-top: 20px;
+            overflow: hidden; background: #000; margin-top: 15px;
         }
         .photo { width: 100%; display: block; border-radius: 15px; opacity: 0.9; }
         
@@ -68,19 +94,12 @@
 
         /* --- Efek Running Text (Marquee) --- */
         .running-text-container {
-            background: #2c3e50;
-            color: #ecf0f1;
-            margin: 0 -25px; /* Menarik container agar mentok kiri-kanan kartu */
-            padding: 8px 0;
-            overflow: hidden;
-            white-space: nowrap;
+            background: #2c3e50; color: #ecf0f1; margin: 0 -25px; padding: 8px 0;
+            overflow: hidden; white-space: nowrap;
         }
         .running-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 20s linear infinite;
-            font-size: 0.85rem;
-            font-weight: 500;
+            display: inline-block; padding-left: 100%;
+            animation: marquee 20s linear infinite; font-size: 0.85rem; font-weight: 500;
         }
         @keyframes marquee {
             0% { transform: translate(0, 0); }
@@ -91,11 +110,11 @@
 <body>
 
     <div class="card">
-        <div class="hanging-lights">
-            <div class="wire"><div class="bulb" style="color: #ff4757; background: #ff4757; animation-delay: 0s;"></div></div>
-            <div class="wire" style="animation-delay: 0.5s;"><div class="bulb" style="color: #ffeb3b; background: #ffeb3b; animation-delay: 0.2s;"></div></div>
-            <div class="wire" style="animation-delay: 1s;"><div class="bulb" style="color: #2ed573; background: #2ed573; animation-delay: 0.4s;"></div></div>
-            <div class="wire" style="animation-delay: 1.5s;"><div class="bulb" style="color: #1e90ff; background: #1e90ff; animation-delay: 0.6s;"></div></div>
+        <div class="hanging-decorations">
+            <div class="string"><div class="lantern"></div></div>
+            <div class="string" style="animation-delay: 0.5s; height: 60px;"><div class="ketupat"></div></div>
+            <div class="string" style="animation-delay: 1s;"><div class="lantern" style="background: #e74c3c; box-shadow: 0 0 15px rgba(231, 76, 60, 0.7);"></div></div>
+            <div class="string" style="animation-delay: 1.5s; height: 60px;"><div class="ketupat" style="background: #f1c40f; border-color: #f39c12;"></div></div>
         </div>
 
         <div class="photo-wrapper">
