@@ -32,29 +32,35 @@
             animation: swing 4s ease-in-out infinite alternate;
         }
 
-        /* Lentera Ramadhan (Lantern) */
-        .lantern {
-            position: absolute; bottom: -25px; left: -10px;
-            width: 20px; height: 30px; background: #f1c40f; /* Warna kuning emas */
-            border-radius: 5px; box-shadow: 0 0 15px rgba(241, 196, 15, 0.7);
-            border: 2px solid #8e44ad; /* Bingkai ungu */
-        }
-        .lantern::before { /* Bagian atas lentera */
-            content: ''; position: absolute; top: -8px; left: 2px;
-            width: 16px; height: 8px; background: #8e44ad; border-radius: 5px 5px 0 0;
+        /* --- Dekorasi Gantung Gambar --- */
+        .hanging-decorations {
+            position: absolute; top: -10px; left: 0; width: 100%;
+            display: flex; justify-content: space-around; align-items: flex-start;
+            pointer-events: none; z-index: 20;
         }
 
-        /* Ketupat */
-        .ketupat {
-            position: absolute; bottom: -20px; left: -8px;
-            width: 18px; height: 18px; background: #2ecc71; /* Warna hijau muda */
-            transform: rotate(45deg);
-            box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
-            border: 2px solid #27ae60; /* Bingkai hijau tua */
+        /* Tali Gantung yang Bergoyang */
+        .string {
+            width: 2px; height: 50px; background: #8e44ad; /* Warna tali gantung */
+            position: relative; transform-origin: top center;
+            animation: swing 4s ease-in-out infinite alternate;
         }
-        .ketupat::after { /* Tali ketupat */
-            content: ''; position: absolute; top: -5px; left: 8px;
-            width: 2px; height: 8px; background: #27ae60;
+
+        /* Gaya untuk Gambar Dekorasi Anda */
+        .my-decor {
+            position: absolute; 
+            bottom: -35px; /* Atur posisi vertikal gambar di ujung tali */
+            left: 50%; /* Tengahkan gambar terhadap tali */
+            transform: translateX(-50%); /* Pastikan benar-benar tengah */
+            height: 40px; /* Atur tinggi gambar agar pas */
+            width: auto; /* Lebar menyesuaikan proposi */
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)); /* Efek cahaya bersinar halus */
+        }
+
+        /* Re-definisi animasi swing agar gambar ikut bergoyang sempurna */
+        @keyframes swing {
+            from { transform: rotate(-15deg); }
+            to { transform: rotate(15deg); }
         }
 
         @keyframes swing {
@@ -147,4 +153,5 @@
 
 </body>
 </html>
+
 
